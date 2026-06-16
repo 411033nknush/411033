@@ -1,21 +1,16 @@
-:root{
-  --bg:#f5f7fb;
-  --card:#ffffff;
-  --accent:#4f46e5;
-  --muted:#6b7280;
-}
+
+/* Keep layout and interaction styles; colors are handled by Tailwind semantic classes */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans TC','Helvetica Neue',Arial}
-body{background:var(--bg);color:#111;display:flex;flex-direction:column;align-items:center}
+body{display:flex;flex-direction:column;align-items:center}
 header{width:100%;max-width:900px;padding:18px 16px;display:flex;justify-content:space-between;align-items:center}
-header h1{margin:0;font-size:18px}
-nav button{margin-left:8px;padding:8px 12px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
 main{width:100%;max-width:900px;padding:12px}
+
 .controls{display:flex;justify-content:center;margin-bottom:18px}
-.controls button{margin:0 6px;padding:8px 12px;border-radius:6px;border:1px solid #ddd;background:#fff}
+
 .card-container{display:flex;justify-content:center}
 .card{width:340px;height:220px;perspective:1200px;cursor:pointer}
-.card .side{width:100%;height:100%;border-radius:12px;background:var(--card);box-shadow:0 8px 24px rgba(16,24,40,0.08);display:flex;align-items:center;justify-content:center;padding:18px;backface-visibility:hidden;position:absolute;left:0;top:0}
+.card .side{width:100%;height:100%;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;padding:18px;backface-visibility:hidden;position:absolute;left:0;top:0}
 .card .front{font-size:32px;font-weight:600}
 .card .back{transform:rotateY(180deg);text-align:left}
 .card{position:relative;transition:transform 600ms}
@@ -25,11 +20,11 @@ main{width:100%;max-width:900px;padding:12px}
 
 #view-manage form{display:grid;gap:8px;grid-template-columns:1fr;max-width:700px}
 #view-manage label{display:flex;flex-direction:column;font-size:14px}
-#view-manage input{padding:8px;border-radius:6px;border:1px solid #ddd}
+#view-manage input{padding:8px;border-radius:8px}
 .form-actions{display:flex;gap:8px}
 #words-list{list-style:none;padding:0;margin-top:12px}
-#words-list li{display:flex;justify-content:space-between;padding:8px;border-radius:6px;background:#fff;margin-bottom:8px;border:1px solid #eee}
-.word-meta{font-size:13px;color:var(--muted)}
+#words-list li{display:flex;justify-content:space-between;padding:8px;border-radius:8px;margin-bottom:8px}
+.word-meta{font-size:13px}
 .word-actions button{margin-left:6px}
 
 @media (max-width:480px){.card{width:92%;height:200px}.card .front{font-size:26px}}

@@ -4,55 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>背單字小工具</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Inline Tailwind config for the CDN build (semantic dark glossy theme)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#0b1220',
+            card: '#0f1724',
+            accent: '#7c3aed',
+            muted: '#94a3b8',
+            'on-surface': '#e6eef8',
+            border: 'rgba(255,255,255,0.06)',
+            gloss: 'rgba(255,255,255,0.04)'
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="min-h-screen bg-surface text-on-surface antialiased">
   <header>
-    <h1>背單字小工具</h1>
-    <nav>
-      <button id="btn-home">練習</button>
-      <button id="btn-manage">管理單字</button>
+    <h1 class="text-lg font-semibold">背單字小工具</h1>
+    <nav class="flex items-center">
+      <button id="btn-home" class="ml-2 px-3 py-2 rounded-lg bg-card border border-border text-on-surface hover:bg-accent/10">練習</button>
+      <button id="btn-manage" class="ml-2 px-3 py-2 rounded-lg bg-card border border-border text-on-surface hover:bg-accent/10">管理單字</button>
     </nav>
   </header>
 
   <main>
-    <section id="view-home">
-      <div class="controls">
-        <button id="prev">上一個</button>
-        <button id="random">隨機</button>
-        <button id="next">下一個</button>
+    <section id="view-home" class="py-6">
+      <div class="controls flex justify-center mb-4">
+        <button id="prev" class="mx-2 px-3 py-2 rounded-lg bg-card border border-border text-on-surface">上一個</button>
+        <button id="random" class="mx-2 px-3 py-2 rounded-lg bg-card border border-border text-on-surface">隨機</button>
+        <button id="next" class="mx-2 px-3 py-2 rounded-lg bg-card border border-border text-on-surface">下一個</button>
       </div>
 
-      <div class="card-container">
+      <div class="card-container flex justify-center">
         <div class="card" id="card">
           <div class="side front" id="card-front">Word</div>
           <div class="side back" id="card-back">
-            <h2 id="back-word"></h2>
-            <p><strong>翻譯：</strong><span id="back-translation"></span></p>
-            <p><strong>詞性：</strong><span id="back-pos"></span></p>
-            <p><strong>例句：</strong><span id="back-example"></span></p>
-            <p><strong>字根/來源：</strong><span id="back-etymology"></span></p>
+            <h2 id="back-word" class="text-xl font-semibold mb-2"></h2>
+            <p class="mb-1"><strong>翻譯：</strong><span id="back-translation"></span></p>
+            <p class="mb-1"><strong>詞性：</strong><span id="back-pos"></span></p>
+            <p class="mb-1"><strong>例句：</strong><span id="back-example"></span></p>
+            <p class="mb-1"><strong>字根/來源：</strong><span id="back-etymology"></span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="view-manage" class="hidden">
-      <h2>管理單字</h2>
-      <form id="word-form">
-        <label>英文單字<input type="text" id="input-word" required></label>
-        <label>翻譯<input type="text" id="input-translation"></label>
-        <label>詞性<input type="text" id="input-pos"></label>
-        <label>例句<input type="text" id="input-example"></label>
-        <label>字根/來源<input type="text" id="input-etymology"></label>
-        <div class="form-actions">
-          <button type="button" id="btn-autofill">自動填入</button>
-          <button type="submit">儲存單字</button>
+    <section id="view-manage" class="hidden py-6">
+      <h2 class="text-xl font-semibold mb-4">管理單字</h2>
+      <form id="word-form" class="grid gap-3 max-w-2xl">
+        <label class="flex flex-col">英文單字<input type="text" id="input-word" required class="mt-1 px-3 py-2 rounded-lg bg-card border border-border text-on-surface"></label>
+        <label class="flex flex-col">翻譯<input type="text" id="input-translation" class="mt-1 px-3 py-2 rounded-lg bg-card border border-border text-on-surface"></label>
+        <label class="flex flex-col">詞性<input type="text" id="input-pos" class="mt-1 px-3 py-2 rounded-lg bg-card border border-border text-on-surface"></label>
+        <label class="flex flex-col">例句<input type="text" id="input-example" class="mt-1 px-3 py-2 rounded-lg bg-card border border-border text-on-surface"></label>
+        <label class="flex flex-col">字根/來源<input type="text" id="input-etymology" class="mt-1 px-3 py-2 rounded-lg bg-card border border-border text-on-surface"></label>
+        <div class="form-actions flex gap-3">
+          <button type="button" id="btn-autofill" class="px-3 py-2 rounded-lg bg-accent text-white">自動填入</button>
+          <button type="submit" class="px-3 py-2 rounded-lg bg-card border border-border text-on-surface">儲存單字</button>
         </div>
       </form>
 
-      <h3>已儲存單字</h3>
-      <ul id="words-list"></ul>
+      <h3 class="mt-6 mb-2 text-lg font-medium">已儲存單字</h3>
+      <ul id="words-list" class="space-y-2"></ul>
     </section>
   </main>
 
