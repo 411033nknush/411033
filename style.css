@@ -28,3 +28,7 @@ main{width:100%;max-width:900px;padding:12px}
 .word-actions button{margin-left:6px}
 
 @media (max-width:480px){.card{width:92%;height:200px}.card .front{font-size:26px}}
+
+/* card hint: position in corner and fade in on hover or when flipped */
+.card .card-hint{position:absolute;right:0.75rem;bottom:0.5rem;opacity:0;pointer-events:none}
+.card:hover .card-hint, .card.flipped .card-hint{opacity:1}
