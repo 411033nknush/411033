@@ -44,13 +44,21 @@
 
       <div class="card-container flex justify-center">
         <div class="card" id="card">
-          <div class="side front" id="card-front">Word</div>
+          <div class="side front" id="card-front">
+            <div class="flex flex-col items-center">
+              <div>Word</div>
+              <div class="mt-2 text-sm text-muted">點擊翻頁</div>
+            </div>
+          </div>
           <div class="side back" id="card-back">
-            <h2 id="back-word" class="text-xl font-semibold mb-2"></h2>
-            <p class="mb-1"><strong>翻譯：</strong><span id="back-translation"></span></p>
-            <p class="mb-1"><strong>詞性：</strong><span id="back-pos"></span></p>
-            <p class="mb-1"><strong>例句：</strong><span id="back-example"></span></p>
-            <p class="mb-1"><strong>字根/來源：</strong><span id="back-etymology"></span></p>
+            <div class="w-full">
+              <h2 id="back-word" class="text-xl font-semibold mb-2"></h2>
+              <p class="mb-2"><strong>翻譯：</strong><span id="back-translation" class="text-2xl font-semibold"></span></p>
+              <p class="mb-1"><strong>詞性：</strong><span id="back-pos"></span></p>
+              <p class="mb-1"><strong>例句：</strong><span id="back-example"></span></p>
+              <p class="mb-1"><strong>字根/來源：</strong><span id="back-etymology"></span></p>
+              <div class="mt-3 text-sm text-muted">點擊翻頁</div>
+            </div>
           </div>
         </div>
       </div>
